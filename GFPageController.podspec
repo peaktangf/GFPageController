@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/gaofengtan/GFPageController.git", :tag => "0.0.1" }
   s.platform     = :ios, '8.0'
 
-  s.source_files  = "GFPageController", "GFPageController/*.{h,m}"
+  s.source_files  = "GFPageController", "GFPageController/**/*.{h,m}"
   s.exclude_files = "GFPageControllerDemo"
 
   s.frameworks = 'Foundation', 'UIKit'
