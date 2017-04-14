@@ -65,6 +65,9 @@ GFPageController为大家提供了下面14个参数来控制菜单的样式显�
 ```
 
 ## 使用Pod来进行管理
+```
+pod 'GFPageController'
+```
 
 
 
