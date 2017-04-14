@@ -69,6 +69,9 @@ GFPageController为大家提供了下面14个参数来控制菜单的样式显�
 pod 'GFPageController'
 ```
 
+## 许可
+该项目使用 MIT 许可证，详情见 LICENSE 文件。
+
 
 
 
