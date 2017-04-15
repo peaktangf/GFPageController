@@ -30,15 +30,24 @@
     }
     
     // 设置控制器数组
-    self.controllers = controllers;
+    self.gf_controllers = controllers;
     // 设置标题数组
-    self.titles      = titles;
+    self.gf_titles      = titles;
     // 设置副标题数组
-    self.subTitles   = subTitles;
+    self.gf_subTitles   = subTitles;
     // 设置初始下标
-    self.selectIndex = 1;
+    self.gf_selectIndex = 1;
     // 设置菜单的纵坐标（基于当前的屏幕大小）
-    self.menuY       = 0;
+    self.gf_menuY       = 0;
+    
+    self.gf_menuBackgroundColor = [UIColor yellowColor];
+    self.gf_maskFillColor = [UIColor blackColor];
+    self.gf_triangleWidth = 100;
+    self.gf_triangleHeight = 100;
+    self.gf_normalTitleColor = [UIColor redColor];
+    self.gf_normalSubTitleColor = [UIColor purpleColor];
+    self.gf_selectedTitleColor = [UIColor whiteColor];
+    self.gf_selectedSubTitleColor = [UIColor lightGrayColor];
     
 }
 

@@ -41,11 +41,17 @@
     }
 }
 
+#pragma mark - public
+
+- (void)gf_reload {
+    [self.menuView reload];
+}
+
 #pragma mark - private
 
 - (void)initialization {
-    _menuHeight  = 50;
-    _menuY       = 0;
+    _gf_menuHeight  = 50;
+    _gf_menuY       = 0;
 }
 
 - (void)setupContentView {
@@ -86,7 +92,7 @@
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView*)scrollView {
     self.isDrag = NO;
     // 添加控制器
-    if (self.controllers) {
+    if (self.gf_controllers) {
         // 获得索引
         int index = (int)self.scrollView.contentOffset.x / self.scrollView.frame.size.width;
         [self addChildViewAtIndex:index];
@@ -107,12 +113,12 @@
 
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
-        CGFloat scrollViewY = _menuHeight + _menuY;
+        CGFloat scrollViewY = _gf_menuHeight + _gf_menuY;
         if (self.navigationController && !self.navigationController.navigationBar.hidden) {
-            scrollViewY = _menuHeight + _menuY + 64;
+            scrollViewY = _gf_menuHeight + _gf_menuY + 64;
         }
         _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, scrollViewY, GF_SCREEN_WIDTH, GF_SCREEN_HEIGHT - scrollViewY)];
-        _scrollView.contentSize                    = CGSizeMake(_controllers.count * GF_SCREEN_WIDTH, 0);
+        _scrollView.contentSize                    = CGSizeMake(_gf_controllers.count * GF_SCREEN_WIDTH, 0);
         _scrollView.pagingEnabled                  = YES;
         _scrollView.bounces                        = NO;
         _scrollView.showsHorizontalScrollIndicator = NO;
@@ -123,11 +129,11 @@
 
 - (GFMenuView *)gfSegmentedControl {
     if (!_menuView) {
-        CGFloat segmentedControlY = _menuY;
+        CGFloat segmentedControlY = _gf_menuY;
         if (self.navigationController && !self.navigationController.navigationBar.hidden) {
-            segmentedControlY = _menuY + 64;
+            segmentedControlY = _gf_menuY + 64;
         }
-        _menuView = [GFMenuView gfMenuViewWithFrame:CGRectMake(0, segmentedControlY, GF_SCREEN_WIDTH, _menuHeight) titles:_titles subTitles:_subTitles];
+        _menuView = [GFMenuView gfMenuViewWithFrame:CGRectMake(0, segmentedControlY, GF_SCREEN_WIDTH, _gf_menuHeight) titles:_gf_titles subTitles:_gf_subTitles];
         gfWeakSelf(weakSelf);
         _menuView.clickIndexBlock = ^(int clickIndex) {
             [weakSelf scrollControllerAtIndex:clickIndex];
@@ -139,124 +145,124 @@
 #pragma mark - setter
 
 // set dataSource
-- (void)setControllers:(NSArray<UIViewController *> *)controllers {
-    _controllers            = [controllers copy];
-    self.scrollView.contentSize = CGSizeMake(_controllers.count * GF_SCREEN_WIDTH, 0);
+- (void)setGf_controllers:(NSArray<UIViewController *> *)controllers {
+    _gf_controllers            = [controllers copy];
+    self.scrollView.contentSize = CGSizeMake(_gf_controllers.count * GF_SCREEN_WIDTH, 0);
     // 添加子控制器
     for (UIViewController *vc in controllers) {
         [self addChildViewController:vc];
         [vc didMoveToParentViewController:self];
     }
-    if (self.selectIndex != 0) {
+    if (self.gf_selectIndex != 0) {
         // 添加指定下标控制器
-        [self addChildViewAtIndex:self.selectIndex];
+        [self addChildViewAtIndex:self.gf_selectIndex];
     } else {
         // 默认添加第一个控制器
         [self addChildViewAtIndex:0];
     }
 }
 
-- (void)setTitles:(NSArray<NSString *> *)titles {
-    _titles                        = [titles copy];
+- (void)setGf_titles:(NSArray<NSString *> *)titles {
+    _gf_titles                     = [titles copy];
     self.gfSegmentedControl.titles = titles;
 }
 
-- (void)setSubTitles:(NSArray<NSString *> *)subTitles {
-    _subTitles                        = [subTitles copy];
+- (void)setGf_subTitles:(NSArray<NSString *> *)subTitles {
+    _gf_subTitles                     = [subTitles copy];
     self.gfSegmentedControl.subTitles = subTitles;
 }
 
 // set menu
-- (void)setMenuY:(CGFloat)menuY {
-    _menuY = menuY;
-    CGFloat viewY = _menuY;
+- (void)setGf_menuY:(CGFloat)gf_menuY {
+    _gf_menuY = gf_menuY;
+    CGFloat viewY = _gf_menuY;
     if (self.navigationController && !self.navigationController.navigationBar.hidden) {
-        viewY = _menuY + 64;
+        viewY = _gf_menuY + 64;
     }
-    self.gfSegmentedControl.frame = CGRectMake(0, viewY, GF_SCREEN_WIDTH, _menuHeight);
-    self.scrollView.frame         = CGRectMake(0, _menuHeight + viewY, GF_SCREEN_WIDTH, GF_SCREEN_HEIGHT -  viewY - _menuHeight);
+    self.gfSegmentedControl.frame = CGRectMake(0, viewY, GF_SCREEN_WIDTH, _gf_menuHeight);
+    self.scrollView.frame         = CGRectMake(0, _gf_menuHeight + viewY, GF_SCREEN_WIDTH, GF_SCREEN_HEIGHT -  viewY - _gf_menuHeight);
 }
 
-- (void)setItemWidth:(CGFloat)itemWidth {
-    _itemWidth                        = itemWidth;
-    self.gfSegmentedControl.itemWidth = itemWidth;
+- (void)setGf_itemWidth:(CGFloat)gf_itemWidth {
+    _gf_itemWidth                     = gf_itemWidth;
+    self.gfSegmentedControl.itemWidth = gf_itemWidth;
 }
 
-- (void)setMenuHeight:(CGFloat)menuHeight {
-    _menuHeight                   = menuHeight;
-    CGFloat viewY = _menuY;
+- (void)setGf_menuHeight:(CGFloat)menuHeight {
+    _gf_menuHeight = menuHeight;
+    CGFloat viewY  = _gf_menuHeight;
     if (self.navigationController && !self.navigationController.navigationBar.hidden) {
-        viewY = _menuY + 64;
+        viewY = _gf_menuHeight + 64;
     }
-    self.gfSegmentedControl.frame = CGRectMake(0, viewY, GF_SCREEN_WIDTH, _menuHeight);
-    self.scrollView.frame         = CGRectMake(0, _menuHeight + viewY, GF_SCREEN_WIDTH, GF_SCREEN_HEIGHT -  viewY - _menuHeight);
+    self.gfSegmentedControl.frame = CGRectMake(0, viewY, GF_SCREEN_WIDTH, _gf_menuHeight);
+    self.scrollView.frame         = CGRectMake(0, _gf_menuHeight + viewY, GF_SCREEN_WIDTH, GF_SCREEN_HEIGHT -  viewY - _gf_menuHeight);
 }
 
-- (void)setMenuBackgroundColor:(UIColor *)menuBackgroundColor {
-    _menuBackgroundColor                        = menuBackgroundColor;
+- (void)setGf_menuBackgroundColor:(UIColor *)menuBackgroundColor {
+    _gf_menuBackgroundColor                     = menuBackgroundColor;
     self.gfSegmentedControl.menuBackgroundColor = menuBackgroundColor;
 }
 
-- (void)setMaskFillColor:(UIColor *)maskFillColor {
-    _maskFillColor                        = maskFillColor;
+- (void)setGf_maskFillColor:(UIColor *)maskFillColor {
+    _gf_maskFillColor                     = maskFillColor;
     self.gfSegmentedControl.maskFillColor = maskFillColor;
 }
 
-- (void)setTriangleHeight:(CGFloat)triangleHeight {
-    _triangleHeight                        = triangleHeight;
+- (void)setGf_triangleHeight:(CGFloat)triangleHeight {
+    _gf_triangleHeight                     = triangleHeight;
     self.gfSegmentedControl.triangleHeight = triangleHeight;
 }
 
-- (void)setTriangleWidth:(CGFloat)triangleWidth {
-    _triangleWidth                        = triangleWidth;
+- (void)setGf_triangleWidth:(CGFloat)triangleWidth {
+    _gf_triangleWidth                     = triangleWidth;
     self.gfSegmentedControl.triangleWidth = triangleWidth;
 }
 
 // set title
-- (void)setNormalTitleColor:(UIColor *)normalTitleColor {
-    _normalTitleColor                        = normalTitleColor;
+- (void)setGf_normalTitleColor:(UIColor *)normalTitleColor {
+    _gf_normalTitleColor                     = normalTitleColor;
     self.gfSegmentedControl.normalTitleColor = normalTitleColor;
 }
 
-- (void)setSelectedTitleColor:(UIColor *)selectedTitleColor {
-    _selectedTitleColor                        = selectedTitleColor;
+- (void)setGf_selectedTitleColor:(UIColor *)selectedTitleColor {
+    _gf_selectedTitleColor                     = selectedTitleColor;
     self.gfSegmentedControl.selectedTitleColor = selectedTitleColor;
 }
 
-- (void)setTitleTextFont:(UIFont *)titleTextFont {
-    _titleTextFont                        = titleTextFont;
+- (void)setGf_titleTextFont:(UIFont *)titleTextFont {
+    _gf_titleTextFont                     = titleTextFont;
     self.gfSegmentedControl.titleTextFont = titleTextFont;
 }
 
-- (void)setTitleTextHeight:(CGFloat)titleTextHeight {
-    _titleTextHeight                        = titleTextHeight;
+- (void)setGf_titleTextHeight:(CGFloat)titleTextHeight {
+    _gf_titleTextHeight                     = titleTextHeight;
     self.gfSegmentedControl.titleTextHeight = titleTextHeight;
 }
 
 // set subTitle
-- (void)setNormalSubTitleColor:(UIColor *)normalSubTitleColor {
-    _normalSubTitleColor                        = normalSubTitleColor;
+- (void)setGf_normalSubTitleColor:(UIColor *)normalSubTitleColor {
+    _gf_normalSubTitleColor                     = normalSubTitleColor;
     self.gfSegmentedControl.normalSubTitleColor = normalSubTitleColor;
 }
 
-- (void)setSelectedSubTitleColor:(UIColor *)selectedSubTitleColor {
-    _selectedSubTitleColor                        = selectedSubTitleColor;
+- (void)setGf_selectedSubTitleColor:(UIColor *)selectedSubTitleColor {
+    _gf_selectedSubTitleColor                     = selectedSubTitleColor;
     self.gfSegmentedControl.selectedSubTitleColor = selectedSubTitleColor;
 }
 
-- (void)setSubTitleTextFont:(UIFont *)subTitleTextFont {
-    _subTitleTextFont                        = subTitleTextFont;
+- (void)setGf_subTitleTextFont:(UIFont *)subTitleTextFont {
+    _gf_subTitleTextFont                     = subTitleTextFont;
     self.gfSegmentedControl.subTitleTextFont = subTitleTextFont;
 }
 
-- (void)setSubTitleTextHeight:(CGFloat)subTitleTextHeight {
-    _subTitleTextHeight                        = subTitleTextHeight;
+- (void)setGf_subTitleTextHeight:(CGFloat)subTitleTextHeight {
+    _gf_subTitleTextHeight                     = subTitleTextHeight;
     self.gfSegmentedControl.subTitleTextHeight = subTitleTextHeight;
 }
 
 // set selectIndex
-- (void)setSelectIndex:(int)selectIndex {
-    _selectIndex                        = selectIndex;
+- (void)setGf_selectIndex:(int)selectIndex {
+    _gf_selectIndex                     = selectIndex;
     self.gfSegmentedControl.selectIndex = selectIndex;
     [self scrollControllerAtIndex:selectIndex];
 }

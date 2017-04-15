@@ -68,4 +68,10 @@
  */
 - (void)setMenuContentOffect:(CGPoint)offect;
 
+
+/**
+ 刷新数据
+ */
+- (void)reload;
+
 @end

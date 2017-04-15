@@ -11,47 +11,51 @@
 @interface GFPageViewController : UIViewController
 
 /** 控制器数组 */
-@property (nonatomic, strong) NSArray<UIViewController *> *controllers;
+@property (nonatomic, strong) NSArray<UIViewController *> *gf_controllers;
 /** 标题数组 */
-@property (nonatomic, copy)   NSArray<NSString *> *titles;
+@property (nonatomic, copy)   NSArray<NSString *> *gf_titles;
 /** 副标题数组 */
-@property (nonatomic, copy)   NSArray<NSString *> *subTitles;
+@property (nonatomic, copy)   NSArray<NSString *> *gf_subTitles;
 /** 设置选中的下标 */
-@property (nonatomic, assign) int selectIndex;
-
+@property (nonatomic, assign) int gf_selectIndex;
 
 /** Menu的 纵坐标，不设置默认按照紧贴屏幕上方，如果有导航栏且未隐藏就为64 */
-@property (nonatomic, assign) CGFloat menuY;
+@property (nonatomic, assign) CGFloat gf_menuY;
 /** MenuItem 的宽度 */
-@property (nonatomic, assign) CGFloat itemWidth;
+@property (nonatomic, assign) CGFloat gf_itemWidth;
 /** Menu 的高度 */
-@property (nonatomic, assign) CGFloat menuHeight;
+@property (nonatomic, assign) CGFloat gf_menuHeight;
 /** Menu 背景颜色 */
-@property (nonatomic, strong) UIColor *menuBackgroundColor;
+@property (nonatomic, strong) UIColor *gf_menuBackgroundColor;
 /** Menu mask的填充颜色 */
-@property (nonatomic, strong) UIColor *maskFillColor;
+@property (nonatomic, strong) UIColor *gf_maskFillColor;
 /** Menu mask三角形的宽度 */
-@property (nonatomic, assign) CGFloat triangleWidth;
+@property (nonatomic, assign) CGFloat gf_triangleWidth;
 /** Menu mask三角形的高度 */
-@property (nonatomic, assign) CGFloat triangleHeight;
+@property (nonatomic, assign) CGFloat gf_triangleHeight;
 
 /** 标题未选中时的颜色 */
-@property (nonatomic, strong) UIColor *normalTitleColor;
+@property (nonatomic, strong) UIColor *gf_normalTitleColor;
 /** 标题选中时的颜色 */
-@property (nonatomic, strong) UIColor *selectedTitleColor;
+@property (nonatomic, strong) UIColor *gf_selectedTitleColor;
 /** 标题文字字体 */
-@property (nonatomic, strong) UIFont  *titleTextFont;
+@property (nonatomic, strong) UIFont  *gf_titleTextFont;
 /** 标题文字高度 */
-@property (nonatomic, assign) CGFloat titleTextHeight;
+@property (nonatomic, assign) CGFloat gf_titleTextHeight;
 
 /** 副标题未选中时的颜色 */
-@property (nonatomic, strong) UIColor *normalSubTitleColor;
+@property (nonatomic, strong) UIColor *gf_normalSubTitleColor;
 /** 副标题选中时的颜色 */
-@property (nonatomic, strong) UIColor *selectedSubTitleColor;
+@property (nonatomic, strong) UIColor *gf_selectedSubTitleColor;
 /** 副标题文字字体 */
-@property (nonatomic, strong) UIFont  *subTitleTextFont;
+@property (nonatomic, strong) UIFont  *gf_subTitleTextFont;
 /** 副标题文字高度 */
-@property (nonatomic, assign) CGFloat subTitleTextHeight;
+@property (nonatomic, assign) CGFloat gf_subTitleTextHeight;
+
+/**
+ 刷新数据
+ */
+- (void)gf_reload;
 
 @end
 
