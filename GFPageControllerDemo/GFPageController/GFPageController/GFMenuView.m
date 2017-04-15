@@ -33,7 +33,7 @@ static const NSInteger TOP_COLLECTIONVIEW_TAG    = 22;
 
 @implementation GFMenuView
 
-#pragma mark - init
+#pragma mark - public
 
 + (instancetype)gfMenuViewWithFrame:(CGRect)frame titles:(NSArray<NSString *> *)titles subTitles:(NSArray<NSString *> *)subTitles {
     GFMenuView *menuView = [[GFMenuView alloc] initWithFrame:frame];
@@ -42,10 +42,16 @@ static const NSInteger TOP_COLLECTIONVIEW_TAG    = 22;
     return menuView;
 }
 
+- (void)setMenuContentOffect:(CGPoint)offect {
+    [_collectionViewTop setContentOffset:offect];
+}
+
+#pragma mark - init
+
 - (void)initialization {
     _itemWidth              = 80;
     _itemHeight             = self.bounds.size.height;
-    _menuBackgroundColor    = [UIColor darkGrayColor];
+    _menuBackgroundColor    = [UIColor blackColor];
     _maskFillColor          = [UIColor redColor];
     _triangleWidth          = 20;
     _triangleHeight         = 8;

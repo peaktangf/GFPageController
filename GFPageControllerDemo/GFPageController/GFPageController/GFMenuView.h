@@ -60,4 +60,12 @@
  */
 + (instancetype)gfMenuViewWithFrame:(CGRect)frame titles:(NSArray<NSString *> *)titles subTitles:(NSArray<NSString *> *)subTitles; 
 
+
+/**
+ 设置菜单的滚动
+
+ @param offect 位置
+ */
+- (void)setMenuContentOffect:(CGPoint)offect;
+
 @end

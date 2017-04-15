@@ -13,6 +13,8 @@
 @interface GFPageViewController ()<UIScrollViewDelegate>
 @property (nonatomic, strong) GFMenuView   *menuView;
 @property (nonatomic, strong) UIScrollView *scrollView;
+/** scrollView是否正在拖拽 */
+@property (nonatomic, assign) BOOL         isDrag;
 @end
 
 @implementation GFPageViewController
@@ -73,8 +75,15 @@
 
 #pragma mark - UIScrollViewDelegate
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (self.isDrag) {
+        [self.menuView setMenuContentOffect:CGPointMake(scrollView.contentOffset.x * self.menuView.itemWidth / GF_SCREEN_WIDTH, scrollView.contentOffset.y)];
+    }
+}
+
 // 滚动动画结束后调用（代码导致)
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView*)scrollView {
+    self.isDrag = NO;
     // 添加控制器
     if (self.controllers) {
         // 获得索引
@@ -86,6 +95,11 @@
 // 滚动结束（手势导致)
 - (void)scrollViewDidEndDecelerating:(UIScrollView*)scrollView {
     [self scrollViewDidEndScrollingAnimation:scrollView];
+}
+
+// 将要开始拖拽ScrollView时调用
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    self.isDrag = YES;
 }
 
 #pragma mark - getter
