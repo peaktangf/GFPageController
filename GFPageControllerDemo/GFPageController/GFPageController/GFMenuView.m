@@ -161,7 +161,9 @@ static const NSInteger TOP_COLLECTIONVIEW_TAG    = 22;
 
 - (void)setSelectIndex:(int)selectIndex {
     _selectIndex = selectIndex;
-    [self selectItemAtIndex:selectIndex];
+    if (_selectIndex != selectIndex) {
+        [self selectItemAtIndex:selectIndex];
+    }
 }
 
 - (UICollectionView *)collectionViewTop {
@@ -325,6 +327,7 @@ static const NSInteger TOP_COLLECTIONVIEW_TAG    = 22;
     if (targetX + width > contentSize.width) {
         targetX = contentSize.width - width;
     }
+    
     [_collectionViewBottom setContentOffset:CGPointMake(targetX, 0) animated:YES];
     if (_clickIndexBlock) {
         _clickIndexBlock((itemX-self.collectionViewEdge)/self.itemWidth);

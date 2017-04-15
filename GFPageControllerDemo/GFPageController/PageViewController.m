@@ -35,9 +35,12 @@
     self.gf_titles      = titles;
     // 设置副标题数组
     self.gf_subTitles   = subTitles;
-    // 设置初始下标
-    self.gf_selectIndex = 1;
-    
+    // 设置当前下标
+    self.gf_selectIndex = 2;
+    // 滚动结束后返回当前下标
+    self.gf_curPageIndexBlock = ^(int curPageIndex) {
+        NSLog(@"%d",curPageIndex);
+    };
 }
 
 - (void)didReceiveMemoryWarning {
