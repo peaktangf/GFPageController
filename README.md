@@ -53,13 +53,17 @@ pod 'GFPageController'
         [controllers addObject:vc];
     }
     // 设置控制器数组
-    self.controllers = controllers;
+    self.gf_controllers = controllers;
     // 设置标题数组
-    self.titles      = titles;
+    self.gf_titles      = titles;
     // 设置副标题数组
-    self.subTitles   = subTitles;
+    self.gf_subTitles   = subTitles;
     // 设置初始下标
-    self.selectIndex = 1;
+    self.gf_selectIndex = 1;
+    // 滚动结束后返回当前下标
+    self.gf_curPageIndexBlock = ^(int curPageIndex) {
+        NSLog(@"%d",curPageIndex);
+    };
 }
 
 - (void)didReceiveMemoryWarning {
@@ -104,6 +108,17 @@ GFPageController为大家提供了下面14个参数来控制菜单的样式显�
 @property (nonatomic, strong) UIFont  *subTitleTextFont;
 /** 副标题文字高度 */
 @property (nonatomic, assign) CGFloat subTitleTextHeight;
+
+/**
+ 滚动结束后返回当前下标
+ */
+@property (nonatomic, copy) void(^gf_curPageIndexBlock)(int curPageIndex);
+
+/**
+ 刷新数据
+ */
+- (void)gf_reload;
+
 ```
 大家可以自行尝试！
 
