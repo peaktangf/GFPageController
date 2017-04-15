@@ -45,6 +45,7 @@
 
 - (void)initialization {
     _menuHeight  = 50;
+    _menuY       = 0;
 }
 
 - (void)setupContentView {
@@ -106,11 +107,11 @@
 
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
-        CGFloat scrollViewY = _menuHeight;
+        CGFloat scrollViewY = _menuHeight + _menuY;
         if (self.navigationController && !self.navigationController.navigationBar.hidden) {
-            scrollViewY = _menuHeight + 64;
+            scrollViewY = _menuHeight + _menuY + 64;
         }
-        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, scrollViewY, GF_SCREEN_WIDTH, GF_SCREEN_HEIGHT - _menuHeight)];
+        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, scrollViewY, GF_SCREEN_WIDTH, GF_SCREEN_HEIGHT - scrollViewY)];
         _scrollView.contentSize                    = CGSizeMake(_controllers.count * GF_SCREEN_WIDTH, 0);
         _scrollView.pagingEnabled                  = YES;
         _scrollView.bounces                        = NO;
@@ -122,9 +123,9 @@
 
 - (GFMenuView *)gfSegmentedControl {
     if (!_menuView) {
-        CGFloat segmentedControlY = 0;
+        CGFloat segmentedControlY = _menuY;
         if (self.navigationController && !self.navigationController.navigationBar.hidden) {
-            segmentedControlY = 64;
+            segmentedControlY = _menuY + 64;
         }
         _menuView = [GFMenuView gfMenuViewWithFrame:CGRectMake(0, segmentedControlY, GF_SCREEN_WIDTH, _menuHeight) titles:_titles subTitles:_subTitles];
         gfWeakSelf(weakSelf);
@@ -166,6 +167,16 @@
 }
 
 // set menu
+- (void)setMenuY:(CGFloat)menuY {
+    _menuY = menuY;
+    CGFloat viewY = _menuY;
+    if (self.navigationController && !self.navigationController.navigationBar.hidden) {
+        viewY = _menuY + 64;
+    }
+    self.gfSegmentedControl.frame = CGRectMake(0, viewY, GF_SCREEN_WIDTH, _menuHeight);
+    self.scrollView.frame         = CGRectMake(0, _menuHeight + viewY, GF_SCREEN_WIDTH, GF_SCREEN_HEIGHT -  viewY - _menuHeight);
+}
+
 - (void)setItemWidth:(CGFloat)itemWidth {
     _itemWidth                        = itemWidth;
     self.gfSegmentedControl.itemWidth = itemWidth;
@@ -173,12 +184,12 @@
 
 - (void)setMenuHeight:(CGFloat)menuHeight {
     _menuHeight                   = menuHeight;
-    CGFloat viewY = 0;
+    CGFloat viewY = _menuY;
     if (self.navigationController && !self.navigationController.navigationBar.hidden) {
-        viewY = 64;
+        viewY = _menuY + 64;
     }
-    self.gfSegmentedControl.frame = CGRectMake(0, viewY, GF_SCREEN_WIDTH, menuHeight);
-    self.scrollView.frame         = CGRectMake(0, _menuHeight + viewY, GF_SCREEN_WIDTH, GF_SCREEN_HEIGHT - _menuHeight);
+    self.gfSegmentedControl.frame = CGRectMake(0, viewY, GF_SCREEN_WIDTH, _menuHeight);
+    self.scrollView.frame         = CGRectMake(0, _menuHeight + viewY, GF_SCREEN_WIDTH, GF_SCREEN_HEIGHT -  viewY - _menuHeight);
 }
 
 - (void)setMenuBackgroundColor:(UIColor *)menuBackgroundColor {

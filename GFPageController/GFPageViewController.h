@@ -19,6 +19,9 @@
 /** 设置选中的下标 */
 @property (nonatomic, assign) int selectIndex;
 
+
+/** Menu的 纵坐标，不设置默认按照紧贴屏幕上方，如果有导航栏且未隐藏就为64 */
+@property (nonatomic, assign) CGFloat menuY;
 /** MenuItem 的宽度 */
 @property (nonatomic, assign) CGFloat itemWidth;
 /** Menu 的高度 */

@@ -37,6 +37,8 @@
     self.subTitles   = subTitles;
     // 设置初始下标
     self.selectIndex = 1;
+    // 设置菜单的纵坐标（基于当前的屏幕大小）
+    self.menuY       = 0;
     
 }
 
