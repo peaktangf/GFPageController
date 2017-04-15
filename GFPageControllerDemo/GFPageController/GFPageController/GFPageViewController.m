@@ -25,6 +25,10 @@
     [super viewDidLoad];
     // 防止视图控制器在未经允许的情况下调整控件的位置（不设置为NO，GFSegmentedControl 的 collectionview 在有导航栏的情况下会向下偏移64个像素）
     self.automaticallyAdjustsScrollViewInsets = NO;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     [self initialization];
     [self setupContentView];
 }
@@ -34,6 +38,7 @@
 }
 
 - (void)dealloc {
+    _scrollView.delegate = nil;
     // 移除所有子控制器
     for (UIViewController *vc in self.childViewControllers) {
         [vc willMoveToParentViewController:self];
@@ -50,8 +55,8 @@
 #pragma mark - private
 
 - (void)initialization {
-    _gf_menuHeight  = 50;
-    _gf_menuY       = 0;
+    self.gf_menuHeight  = 50;
+    self.gf_menuY       = 0;
 }
 
 - (void)setupContentView {

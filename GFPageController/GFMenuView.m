@@ -122,6 +122,11 @@ static const NSInteger TOP_COLLECTIONVIEW_TAG    = 22;
     }
 }
 
+- (void)dealloc {
+    _collectionViewTop.delegate    = nil;
+    _collectionViewBottom.delegate = nil;
+}
+
 #pragma mark - setter && getter
 
 - (void)setTitles:(NSArray<NSString *> *)titles {
