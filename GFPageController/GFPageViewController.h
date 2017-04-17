@@ -52,6 +52,12 @@
 /** 副标题文字高度 */
 @property (nonatomic, assign) CGFloat gf_subTitleTextHeight;
 
+
+/**
+ 滚动结束后返回当前下标
+ */
+@property (nonatomic, copy) void(^gf_curPageIndexBlock)(int curPageIndex);
+
 /**
  刷新数据
  */

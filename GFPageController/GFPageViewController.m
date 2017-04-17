@@ -67,7 +67,7 @@
 - (void)scrollControllerAtIndex:(int)index {
     CGFloat offsetX = index * GF_SCREEN_WIDTH;
     CGPoint offset = CGPointMake(offsetX, 0);
-    if (fabs(self.scrollView.contentOffset.x - offset.x) > GF_SCREEN_WIDTH) {
+    if (fabs(self.scrollView.contentOffset.x - offset.x) > GF_SCREEN_WIDTH || self.scrollView.contentOffset.x == offset.x) {
         [self.scrollView setContentOffset:offset animated:NO];
         // 获得索引
         int index = (int)self.scrollView.contentOffset.x / self.scrollView.frame.size.width;
@@ -83,6 +83,11 @@
     UIViewController *vc = self.childViewControllers[index];
     vc.view.frame = self.scrollView.bounds;
     [self.scrollView addSubview:vc.view];
+    // 回调当前选中的下标
+    gfWeakSelf(weakSelf);
+    if (weakSelf.gf_curPageIndexBlock) {
+        weakSelf.gf_curPageIndexBlock(index);
+    }
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -270,6 +275,14 @@
     _gf_selectIndex                     = selectIndex;
     self.gfSegmentedControl.selectIndex = selectIndex;
     [self scrollControllerAtIndex:selectIndex];
+}
+
+// set curPageIndexBlock
+- (void)setGf_curPageIndexBlock:(void (^)(int))gf_curPageIndexBlock {
+    _gf_curPageIndexBlock = [gf_curPageIndexBlock copy];
+    if (self.gf_selectIndex == 0) {
+        [self scrollControllerAtIndex:0];
+    }
 }
 
 @end
