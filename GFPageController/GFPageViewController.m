@@ -157,17 +157,21 @@
 // set dataSource
 - (void)setGf_controllers:(NSArray<UIViewController *> *)controllers {
     _gf_controllers            = [controllers copy];
+    // 移除所有子控制器
+    for (UIViewController *vc in self.childViewControllers) {
+        [vc willMoveToParentViewController:self];
+        [vc removeFromParentViewController];
+    }
     self.scrollView.contentSize = CGSizeMake(_gf_controllers.count * GF_SCREEN_WIDTH, 0);
     // 添加子控制器
     for (UIViewController *vc in controllers) {
         [self addChildViewController:vc];
         [vc didMoveToParentViewController:self];
     }
+    // 添加控制器
     if (self.gf_selectIndex != 0) {
-        // 添加指定下标控制器
         [self addChildViewAtIndex:self.gf_selectIndex];
     } else {
-        // 默认添加第一个控制器
         [self addChildViewAtIndex:0];
     }
 }

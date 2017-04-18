@@ -16,7 +16,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"刷新" style:UIBarButtonItemStylePlain target:self action:@selector(refresh)];
     [self configureContentView];
+}
+
+- (void)refresh {
+    NSLog(@"刷新");
 }
 
 - (void)configureContentView {
@@ -41,6 +46,8 @@
     self.gf_curPageIndexBlock = ^(int curPageIndex) {
         NSLog(@"%d",curPageIndex);
     };
+    // 刷新数据
+    [self gf_reload];
 }
 
 - (void)didReceiveMemoryWarning {

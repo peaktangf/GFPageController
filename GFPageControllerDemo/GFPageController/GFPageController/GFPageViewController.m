@@ -157,6 +157,11 @@
 // set dataSource
 - (void)setGf_controllers:(NSArray<UIViewController *> *)controllers {
     _gf_controllers            = [controllers copy];
+    // 移除所有子控制器
+    for (UIViewController *vc in self.childViewControllers) {
+        [vc willMoveToParentViewController:self];
+        [vc removeFromParentViewController];
+    }
     self.scrollView.contentSize = CGSizeMake(_gf_controllers.count * GF_SCREEN_WIDTH, 0);
     // 添加子控制器
     for (UIViewController *vc in controllers) {
