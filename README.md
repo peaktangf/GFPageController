@@ -10,7 +10,6 @@
 - 菜单遮罩的颜色、大小和箭头的大小也可以设置参数来控制；
 - 菜单实现了防止用户连续点击功能；
 - 可以设置滚动完成之后的回调;
-- 增加reload方法来刷新菜单数据;
 - 支持pod导入
 
 ## 导入组件
@@ -113,11 +112,6 @@ GFPageController为大家提供了下面14个参数来控制菜单的样式显�
  滚动结束后返回当前下标
  */
 @property (nonatomic, copy) void(^gf_curPageIndexBlock)(int curPageIndex);
-
-/**
- 刷新数据
- */
-- (void)gf_reload;
 
 ```
 大家可以自行尝试！
