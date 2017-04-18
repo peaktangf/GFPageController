@@ -46,8 +46,6 @@
     self.gf_curPageIndexBlock = ^(int curPageIndex) {
         NSLog(@"%d",curPageIndex);
     };
-    // 刷新数据
-    [self gf_reload];
 }
 
 - (void)didReceiveMemoryWarning {

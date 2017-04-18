@@ -46,12 +46,6 @@
     }
 }
 
-#pragma mark - public
-
-- (void)gf_reload {
-    [self.menuView reload];
-}
-
 #pragma mark - private
 
 - (void)initialization {
@@ -168,10 +162,11 @@
         [self addChildViewController:vc];
         [vc didMoveToParentViewController:self];
     }
-    // 添加控制器
     if (self.gf_selectIndex != 0) {
+        // 添加指定下标控制器
         [self addChildViewAtIndex:self.gf_selectIndex];
     } else {
+        // 默认添加第一个控制器
         [self addChildViewAtIndex:0];
     }
 }

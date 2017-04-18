@@ -58,11 +58,6 @@
  */
 @property (nonatomic, copy) void(^gf_curPageIndexBlock)(int curPageIndex);
 
-/**
- 刷新数据
- */
-- (void)gf_reload;
-
 @end
 
 

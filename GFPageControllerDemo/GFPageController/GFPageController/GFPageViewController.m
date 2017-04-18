@@ -46,12 +46,6 @@
     }
 }
 
-#pragma mark - public
-
-- (void)gf_reload {
-    [self.menuView reload];
-}
-
 #pragma mark - private
 
 - (void)initialization {
