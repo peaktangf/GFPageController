@@ -279,7 +279,7 @@
 // set curPageIndexBlock
 - (void)setGf_curPageIndexBlock:(void (^)(int))gf_curPageIndexBlock {
     _gf_curPageIndexBlock = [gf_curPageIndexBlock copy];
-    if (self.gf_selectIndex == 0) {
+    if (gf_curPageIndexBlock && self.gf_selectIndex == 0) {
         [self scrollControllerAtIndex:0];
     }
 }
