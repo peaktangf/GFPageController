@@ -29,6 +29,7 @@
         [controllers addObject:vc];
     }
     
+    
     // 设置控制器数组
     self.gf_controllers = controllers;
     // 设置标题数组
@@ -41,6 +42,7 @@
     self.gf_curPageIndexBlock = ^(int curPageIndex) {
         NSLog(@"%d",curPageIndex);
     };
+    [self reloadView];
 }
 
 - (void)didReceiveMemoryWarning {

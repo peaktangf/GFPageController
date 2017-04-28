@@ -27,12 +27,6 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    [self initialization];
-    [self setupContentView];
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -44,6 +38,11 @@
         [vc willMoveToParentViewController:self];
         [vc removeFromParentViewController];
     }
+}
+
+- (void)reloadView {
+    [self initialization];
+    [self setupContentView];
 }
 
 #pragma mark - private

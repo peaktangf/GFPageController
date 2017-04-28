@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		94885C0C1EB34767002DD71E /* GFMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94885C041EB34767002DD71E /* GFMaskView.m */; };
+		94885C0D1EB34767002DD71E /* GFMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 94885C061EB34767002DD71E /* GFMenuItem.m */; };
+		94885C0E1EB34767002DD71E /* GFMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94885C081EB34767002DD71E /* GFMenuView.m */; };
+		94885C0F1EB34767002DD71E /* GFPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94885C0B1EB34767002DD71E /* GFPageViewController.m */; };
 		94EE4F341E9F620E00B28618 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EE4F331E9F620E00B28618 /* main.m */; };
 		94EE4F4D1E9F620E00B28618 /* GFPageControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EE4F4C1E9F620E00B28618 /* GFPageControllerTests.m */; };
 		94EE4F581E9F620E00B28618 /* GFPageControllerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EE4F571E9F620E00B28618 /* GFPageControllerUITests.m */; };
@@ -14,10 +18,6 @@
 		94EE4F971E9FA54F00B28618 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94EE4F831E9FA54F00B28618 /* Assets.xcassets */; };
 		94EE4F981E9FA54F00B28618 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94EE4F851E9FA54F00B28618 /* LaunchScreen.storyboard */; };
 		94EE4F991E9FA54F00B28618 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94EE4F871E9FA54F00B28618 /* Main.storyboard */; };
-		94EE4F9A1E9FA54F00B28618 /* GFMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EE4F8B1E9FA54F00B28618 /* GFMaskView.m */; };
-		94EE4F9B1E9FA54F00B28618 /* GFMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EE4F8D1E9FA54F00B28618 /* GFMenuItem.m */; };
-		94EE4F9C1E9FA54F00B28618 /* GFMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EE4F8F1E9FA54F00B28618 /* GFMenuView.m */; };
-		94EE4F9D1E9FA54F00B28618 /* GFPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EE4F921E9FA54F00B28618 /* GFPageViewController.m */; };
 		94EE4F9E1E9FA54F00B28618 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94EE4F931E9FA54F00B28618 /* Info.plist */; };
 		94EE4F9F1E9FA54F00B28618 /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EE4F951E9FA54F00B28618 /* PageViewController.m */; };
 /* End PBXBuildFile section */
@@ -40,6 +40,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		94885C031EB34767002DD71E /* GFMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFMaskView.h; sourceTree = "<group>"; };
+		94885C041EB34767002DD71E /* GFMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFMaskView.m; sourceTree = "<group>"; };
+		94885C051EB34767002DD71E /* GFMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFMenuItem.h; sourceTree = "<group>"; };
+		94885C061EB34767002DD71E /* GFMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFMenuItem.m; sourceTree = "<group>"; };
+		94885C071EB34767002DD71E /* GFMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFMenuView.h; sourceTree = "<group>"; };
+		94885C081EB34767002DD71E /* GFMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFMenuView.m; sourceTree = "<group>"; };
+		94885C091EB34767002DD71E /* GFPageConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFPageConst.h; sourceTree = "<group>"; };
+		94885C0A1EB34767002DD71E /* GFPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFPageViewController.h; sourceTree = "<group>"; };
+		94885C0B1EB34767002DD71E /* GFPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFPageViewController.m; sourceTree = "<group>"; };
 		94EE4F2F1E9F620E00B28618 /* GFPageController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GFPageController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94EE4F331E9F620E00B28618 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		94EE4F481E9F620E00B28618 /* GFPageControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GFPageControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,15 +62,6 @@
 		94EE4F831E9FA54F00B28618 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		94EE4F861E9FA54F00B28618 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		94EE4F881E9FA54F00B28618 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
-		94EE4F8A1E9FA54F00B28618 /* GFMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFMaskView.h; sourceTree = "<group>"; };
-		94EE4F8B1E9FA54F00B28618 /* GFMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFMaskView.m; sourceTree = "<group>"; };
-		94EE4F8C1E9FA54F00B28618 /* GFMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFMenuItem.h; sourceTree = "<group>"; };
-		94EE4F8D1E9FA54F00B28618 /* GFMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFMenuItem.m; sourceTree = "<group>"; };
-		94EE4F8E1E9FA54F00B28618 /* GFMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFMenuView.h; sourceTree = "<group>"; };
-		94EE4F8F1E9FA54F00B28618 /* GFMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFMenuView.m; sourceTree = "<group>"; };
-		94EE4F901E9FA54F00B28618 /* GFPageConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFPageConst.h; sourceTree = "<group>"; };
-		94EE4F911E9FA54F00B28618 /* GFPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFPageViewController.h; sourceTree = "<group>"; };
-		94EE4F921E9FA54F00B28618 /* GFPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFPageViewController.m; sourceTree = "<group>"; };
 		94EE4F931E9FA54F00B28618 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94EE4F941E9FA54F00B28618 /* PageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
 		94EE4F951E9FA54F00B28618 /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
@@ -92,6 +92,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		94885C021EB34767002DD71E /* GFPageController */ = {
+			isa = PBXGroup;
+			children = (
+				94885C031EB34767002DD71E /* GFMaskView.h */,
+				94885C041EB34767002DD71E /* GFMaskView.m */,
+				94885C051EB34767002DD71E /* GFMenuItem.h */,
+				94885C061EB34767002DD71E /* GFMenuItem.m */,
+				94885C071EB34767002DD71E /* GFMenuView.h */,
+				94885C081EB34767002DD71E /* GFMenuView.m */,
+				94885C091EB34767002DD71E /* GFPageConst.h */,
+				94885C0A1EB34767002DD71E /* GFPageViewController.h */,
+				94885C0B1EB34767002DD71E /* GFPageViewController.m */,
+			);
+			name = GFPageController;
+			path = ../../GFPageController;
+			sourceTree = "<group>";
+		};
 		94EE4F261E9F620E00B28618 = {
 			isa = PBXGroup;
 			children = (
@@ -115,7 +132,7 @@
 		94EE4F311E9F620E00B28618 /* GFPageController */ = {
 			isa = PBXGroup;
 			children = (
-				94EE4F891E9FA54F00B28618 /* GFPageController */,
+				94885C021EB34767002DD71E /* GFPageController */,
 				94EE4F811E9FA54F00B28618 /* AppDelegate.h */,
 				94EE4F821E9FA54F00B28618 /* AppDelegate.m */,
 				94EE4F941E9FA54F00B28618 /* PageViewController.h */,
@@ -153,22 +170,6 @@
 				94EE4F591E9F620E00B28618 /* Info.plist */,
 			);
 			path = GFPageControllerUITests;
-			sourceTree = "<group>";
-		};
-		94EE4F891E9FA54F00B28618 /* GFPageController */ = {
-			isa = PBXGroup;
-			children = (
-				94EE4F8A1E9FA54F00B28618 /* GFMaskView.h */,
-				94EE4F8B1E9FA54F00B28618 /* GFMaskView.m */,
-				94EE4F8C1E9FA54F00B28618 /* GFMenuItem.h */,
-				94EE4F8D1E9FA54F00B28618 /* GFMenuItem.m */,
-				94EE4F8E1E9FA54F00B28618 /* GFMenuView.h */,
-				94EE4F8F1E9FA54F00B28618 /* GFMenuView.m */,
-				94EE4F901E9FA54F00B28618 /* GFPageConst.h */,
-				94EE4F911E9FA54F00B28618 /* GFPageViewController.h */,
-				94EE4F921E9FA54F00B28618 /* GFPageViewController.m */,
-			);
-			path = GFPageController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,13 +308,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94EE4F9B1E9FA54F00B28618 /* GFMenuItem.m in Sources */,
-				94EE4F9A1E9FA54F00B28618 /* GFMaskView.m in Sources */,
-				94EE4F9D1E9FA54F00B28618 /* GFPageViewController.m in Sources */,
 				94EE4F961E9FA54F00B28618 /* AppDelegate.m in Sources */,
 				94EE4F341E9F620E00B28618 /* main.m in Sources */,
-				94EE4F9C1E9FA54F00B28618 /* GFMenuView.m in Sources */,
 				94EE4F9F1E9FA54F00B28618 /* PageViewController.m in Sources */,
+				94885C0F1EB34767002DD71E /* GFPageViewController.m in Sources */,
+				94885C0C1EB34767002DD71E /* GFMaskView.m in Sources */,
+				94885C0E1EB34767002DD71E /* GFMenuView.m in Sources */,
+				94885C0D1EB34767002DD71E /* GFMenuItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

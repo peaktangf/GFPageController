@@ -58,6 +58,12 @@
  */
 @property (nonatomic, copy) void(^gf_curPageIndexBlock)(int curPageIndex);
 
+
+/**
+ 配置完视图之后一定要调用该方法
+ */
+- (void)reloadView;
+
 @end
 
 
