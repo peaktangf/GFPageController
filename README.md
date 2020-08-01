@@ -1,9 +1,12 @@
-# GFPageController [（组件详解）](http://www.jianshu.com/p/6f10ae622d44)
+<h1 align="center">Welcome to GFPageController 👋</h1>
 
-## 效果
+> GFPageController是一个简单实用的仿淘宝电商秒杀页的菜单切换组件
+
+
+## 最终效果
 ![](https://github.com/gaofengtan/GFPageController/blob/master/%E6%BC%94%E7%A4%BA.gif)
 
-## 介绍
+## 功能描述
 - 实现了菜单切换的视觉差，效果棒棒哒；
 - 使用简单，创建一个控制器直接继承GFPageViewController，设置需要添加的子控制器、标题、副标题就搞定；
 - 菜单大部分的样式都可进行自定义；
@@ -22,6 +25,10 @@
 ### 2、Pod导入
 ```
 pod 'GFPageController'
+```
+### 3、Carthage导入
+```
+github 'GFPageController'
 ```
 
 ## 使用
